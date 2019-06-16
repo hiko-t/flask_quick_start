@@ -1,3 +1,4 @@
+# coding: utf-8
 from flask import Flask
 
 # 利用するモジュールが1つだけなら'__name__'を使わなければいけない

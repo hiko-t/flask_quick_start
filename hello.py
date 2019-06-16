@@ -16,6 +16,18 @@ def hello_world():
 # 始まりの関数
     return "Hello World!"
 
+# URLを変数名として扱う
+@app.route('/user/<username>')
+def show_user_profile(username):
+    # 例）そのユーザのユーザプロフィールを表示する
+    return 'User name is ' + username
+
+# 型を指定して変数名を受け付ける
+@app.route('/post/<int:post_id>')
+def show_post(post_id):
+    # 与えられた数値型のIDをポストに表示する
+    pass
+
 # Pythonインタプリタから直接実行されたときに
 # アプリが実行されることを保証するための条件
 if __name__ == '__main__':

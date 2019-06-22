@@ -42,6 +42,14 @@ def about():
     # これはWerkzeugのルールに基づいている
     return 'About Page'
 
+# HTTPメソッド
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        do_the_login()
+    else:
+        show_the_login_form()
+
 
 # Pythonインタプリタから直接実行されたときに
 # アプリが実行されることを保証するための条件
@@ -54,6 +62,4 @@ if __name__ == '__main__':
 
     # アプリケーションの実行
     app.run()
-    
-
 

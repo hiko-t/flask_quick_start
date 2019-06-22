@@ -28,6 +28,21 @@ def show_post(post_id):
     # 与えられた数値型のIDをポストに表示する
     pass
 
+# 固有のURLによるリダイレクション
+@app.route('/projects/')
+def projects():
+    # 末尾にスラッシュをあると
+    # URL入力時にスラッシュが無くてもリダイレクトしてくれる
+    return 'Projects Page'
+
+@app.route('/about')
+def about():
+    # 末尾にスラッシュが無いと
+    # URL入力時にスラッシュが無いと404エラーとなる
+    # これはWerkzeugのルールに基づいている
+    return 'About Page'
+
+
 # Pythonインタプリタから直接実行されたときに
 # アプリが実行されることを保証するための条件
 if __name__ == '__main__':

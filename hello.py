@@ -1,5 +1,5 @@
 # coding: utf-8
-from flask import Flask
+from flask import Flask, render_template
 
 # 利用するモジュールが1つだけなら'__name__'を使わなければいけない
 # アプリケーションとしてインポートされるときは'__main__'らしい
@@ -11,10 +11,10 @@ def index():
     return 'Index Page'
 
 # ルーティングで切り替え
-@app.route('/hello')
-def hello_world():
-# 始まりの関数
-    return "Hello World!"
+@app.route('/hello/')
+def hello_world(name=None):
+    # 始まりの関数
+    return 'Hello World'
 
 # URLを変数名として扱う
 @app.route('/user/<username>')
@@ -49,6 +49,12 @@ def login():
         do_the_login()
     else:
         show_the_login_form()
+
+# スタティックファイル
+# 動的なWebアプリを作る場合に必要な静的ファイルを呼び出す方法
+# url_for('static', filename='style.css')
+# あらかじめstaticという名前のフォルダを作っておけば
+# そのフォルダに静的ファイルを作ってくれる
 
 
 # Pythonインタプリタから直接実行されたときに
